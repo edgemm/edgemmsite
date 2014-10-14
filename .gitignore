@@ -8,6 +8,7 @@ Thumbs.db
 
 # wordpress specific
 wp-config.php
+wp-content/plugins/
 wp-content/themes/twentyten
 wp-content/themes/twentyeleven
 wp-content/themes/twentytwelve
@@ -19,6 +20,7 @@ wp-content/themes/twentyseventeen
 wp-content/themes/twentyeighteen
 wp-content/themes/twentynineteen
 wp-content/themes/twentytwenty
+wp-content/themes/uber
 wp-content/uploads/
 wp-content/blogs.dir/
 wp-content/upgrade/*

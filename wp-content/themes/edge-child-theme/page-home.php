@@ -7,10 +7,11 @@ Template Name: Home
 
 <?php $call_to_action_text = of_get_option('ttrust_cta_text'); ?>
 <?php if($call_to_action_text) : ?>	
-<div id="callToAction" class="clearfix">
-	<p>	<?php echo $call_to_action_text; ?></p>
-	<a href="<?php echo of_get_option('ttrust_cta_btn_link'); ?>" class="button"><?php echo of_get_option('ttrust_cta_btn_text'); ?></a>
-	
+<div id="callToAction" class="full homeSection clearfix">
+	<h3>
+		<span>Find Your Edge</span>
+	</h3>
+	<?php echo do_shortcode( '[contact-form-7 id="2132" title="Call to Action - Home"]' ); ?>
 </div>
 <?php endif; ?>
 

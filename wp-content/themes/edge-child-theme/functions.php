@@ -10,7 +10,7 @@ function my_jquery_enqueue() {
 if (!is_admin()) add_action("wp_enqueue_scripts", "my_fitvids_enqueue", 11);
 function my_fitvids_enqueue() {
    wp_deregister_script('fitvids');
-   wp_register_script('fitvids', get_stylesheet_directory_uri().'/js/jquery.fitvids_smc.js', false, null);
+   wp_register_script('fitvids', get_stylesheet_directory_uri().'/js/jquery.fitvids.js', false, null);
    wp_enqueue_script('fitvids');
 }
 
@@ -23,13 +23,29 @@ function my_jquery_enqueue() {
 }
 /* end smc Track Youtube Videos */
 
+/* add site-wide scripts and stylesheets */
+function edgemm_scripts() {
+	// generic scripts used across site
+	wp_enqueue_script( 'edgemm-scripts', get_stylesheet_directory_uri() . '/js/edgemm-scripts.js', array(), '1.0.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'edgemm_scripts' );
+
 // Multiple Featured Images
 require_once ('multiple_featured_images_smc.php');
 
 
 if ( function_exists( 'add_image_size' ) ) { 
 	add_image_size( 'background-blur-smc', 1000, 1000 );
+}
 
+// add MultiPostThumbnails to Home Sliders
+if (class_exists('MultiPostThumbnails2')) {
+	new MultiPostThumbnails2(array(
+		'label' => 'Background Image',
+		'id' => 'background_image',
+		'post_type' => 'home_slider'
+		)
+	);
 }
 
 function is_desc_cat($cats, $_post = null) {
@@ -105,16 +121,16 @@ function remove_parent_theme_features() {
     remove_action('wp_footer','ttrust_footer');
 }
 
-add_action('wp_footer','ttrust_footer_smc');
+add_action('wp_footer','edgemm_footer');
 
-function ttrust_footer_smc() {
+function edgemm_footer() {
 	wp_reset_query();
 	if(is_front_page()){
 		if (of_get_option('ttrust_bkg_slideshow_enabled') && !is_mobile()) {
-			include('background_home_smc.php');
+			include(get_stylesheet_directory() . '/js/background_home.php');
 		}
 		if (of_get_option('ttrust_slideshow_enabled')) {
-			include(TEMPLATEPATH . '/js/slideshow.php');
+			include(get_stylesheet_directory() . '/js/slideshow.php');
 		}
 
 		global $wp_query;
@@ -132,7 +148,7 @@ function ttrust_footer_smc() {
 			include(TEMPLATEPATH . '/js/background_single.php');
 		}
 		if ( false !== strpos($post->post_content, '[slideshow') ) {
-			include(TEMPLATEPATH . '/js/slideshow.php');
+			include(get_stylesheet_directory() . '/js/slideshow.php');
 		}
 	}
 }
@@ -145,6 +161,50 @@ $title);
 return $title;
 }
 add_filter('the_title','remove_private_prefix');
+
+
+//////////////////////////////////////////////////////////////
+// Post Type - Home Sliders
+/////////////////////////////////////////////////////////////
+add_action( 'init', 'register_home_slider' );
+
+function register_home_slider() {
+
+    $labels = array( 
+        'name' => _x( 'Home Sliders', 'home_slider' ),
+        'singular_name' => _x( 'Home Slider', 'home_slider' ),
+        'add_new' => _x( 'Add New Home Slider', 'home_slider' ),
+        'add_new_item' => _x( 'Add New Home Slider', 'home_slider' ),
+        'edit_item' => _x( 'Edit Home Slider', 'home_slider' ),
+        'new_item' => _x( 'New Home Slider', 'home_slider' ),
+        'view_item' => _x( 'View Home Slider', 'home_slider' ),
+        'search_items' => _x( 'Search Home Sliders', 'home_slider' ),
+        'not_found' => _x( 'No home sliders found', 'home_slider' ),
+        'not_found_in_trash' => _x( 'No home sliders found in Trash', 'home_slider' ),
+        'parent_item_colon' => _x( 'Parent Home Slider:', 'home_slider' ),
+        'menu_name' => _x( 'Home Sliders', 'home_slider' ),
+    );
+
+    $args = array( 
+        'labels' => $labels,
+        'hierarchical' => false,
+        'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+        'taxonomies' => array( 'Slider Order' ),
+        'public' => true,
+        'show_ui' => true,        
+        'menu_position' => 100,        
+        'show_in_nav_menus' => false,
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
+        'has_archive' => false,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'post'
+    );
+
+    register_post_type( 'home_slider', $args );
+}
 
 
 ?>

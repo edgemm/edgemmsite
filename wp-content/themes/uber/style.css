@@ -578,7 +578,7 @@ a.action {
 	width: 94%;						
 }
 
-.home #content.full, .page-template-default #content.full {	
+.page-template-default #content.full {	
 	width: 96%;						
 }
 
@@ -684,7 +684,7 @@ a.action {
 .homeSection h3 {
 	font-size: .75em;
 	font-weight: bold;
-	margin: 0 2% 20px 0;
+	margin: 0 0 20px;
 	clear: both;
 	background: transparent url(images/dotted_line.gif) 0 center repeat-x;	
 	color: #555555;
@@ -696,13 +696,7 @@ a.action {
 }
 
 #callToAction {
-	background: #f0f0f0;
-	padding: 20px;
-	margin: 0 2% 30px 0;
 	position: relative;	
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
 }
 
 #callToAction p {
@@ -1837,9 +1831,14 @@ ol#commentslist {
 	}
 	
 	#content .project.small {
+		width: 48%;
+		margin-right: 4% !important;
 		margin-bottom: 12px !important;
-		width: 46%;		
-	}	
+	}
+	
+	#content .project.small:nth-of-type(2n) {
+		margin-right: 0 !important;
+	}
 	
 	#footer { padding: 0 !important;}	
 	
@@ -1941,8 +1940,7 @@ ol#commentslist {
 		width: 94% !important;	
 	}
 	
-	#callToAction {		
-		text-align: center;
+	#callToAction {
 		margin-left: 0px;
 		margin-right: 12px;
 	}
@@ -1956,7 +1954,7 @@ ol#commentslist {
 		text-align: center;
 	}
 	
-	.page-template-page-portfolio-php #content.full, .home #content.full {
+	.page-template-page-portfolio-php #content.full {
 		margin-left: 15px!important;
 		margin-right: 0px!important;		
 		width: 95% !important;	
@@ -1973,7 +1971,11 @@ ol#commentslist {
 		width: 47%;	
 		margin-bottom: 12px;
 		display: block;
-		margin-right: 10px !important;
+		margin-right: 4% !important;
+	}
+	
+	#content .project.small:nth-of-type(2n) {
+		margin-right: 0 !important;
 	}	
 	
 	#content .post.small {		

@@ -1,6 +1,6 @@
 /*
 Theme Name: Edge Child Theme
-Version: 1.0
+Version: 1.1
 Description: A child theme of Uber
 Template: uber
 */
@@ -449,6 +449,12 @@ display:block;
 }
 
 /* call to action */
+
+.home #callToAction {
+	margin: 0;
+	padding: 0;
+	background: transparent;
+}
 
 #callToAction h3 {
 	color: #ef4823;

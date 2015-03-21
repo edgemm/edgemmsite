@@ -18,18 +18,23 @@
 		<div class="secondary clearfix">	
 			<?php $footer_left = of_get_option('ttrust_footer_left'); ?>
 			<?php $footer_right = of_get_option('ttrust_footer_right'); ?>
-			<div class="left"><p><?php if($footer_left){echo($footer_left);} else{ ?>&copy; <?php echo date('Y');?> <a href="<?php bloginfo('url'); ?>"><strong><?php bloginfo('name'); ?></strong></a> All Rights Reserved.<?php }; ?></p></div>
 			<div class="right">
-			  <p>Edge Multimedia a <a target="_blank" href="http://edgemm.com">Portland Advertising Agency</a></p></div>
-
-<!--Faceook like button
-<div id="fb-like-position">
-
-<div class="fb-like" data-href="https://www.facebook.com/edgemultimedia" data-width="225" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
-
-</div>
---end Faceook like button -->
-              
+				<p class="footer-contact">
+					<a class="footer-contact-info" href="">
+						<span class="footer-contact-heading">Call:</span> 
+						503.828.0849
+					</a>
+				</p>
+				<p class="footer-contact">
+					<a class="footer-contact-info" href="mailto:hello@edgemm.com">
+						<span class="footer-contact-heading">Email:</span> 
+						hello@edgemm.com
+					</a>
+				</p>
+			</div> 
+			<div class="left">
+				<p class="copyright"><?php if($footer_left){echo($footer_left);} else{ ?>&copy; <?php echo date('Y');?> <a href="<?php bloginfo('url'); ?>"><strong><?php bloginfo('name'); ?></strong></a> All Rights Reserved.<?php }; ?></p>
+			</div>             
 		</div><!-- end footer secondary-->		
 		</div>		
 	</div><!-- end footer -->

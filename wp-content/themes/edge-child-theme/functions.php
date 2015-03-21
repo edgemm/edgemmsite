@@ -205,6 +205,24 @@ function register_home_slider() {
 
     register_post_type( 'home_slider', $args );
 }
+///////////////////////////////////////////////////////////////////////////
+// [htmlvideo video="video-url" poster="poster-url" image="image-url"] smc
+///////////////////////////////////////////////////////////////////////////
+function htmlvideosmc( $atts ) {
+    $a = shortcode_atts( array(
+        'video' => '',
+        'poster' => '',
+		'image' => '',
+		'loop' => 'false',
+		'autoplay' => 'false',
+    ), $atts );
+	
+if ($a['loop'] == "true") {$loop = "loop";} else {$loop == "";}
+if ($a['autoplay'] == "true") {$autoplay = "autoplay";} else {$autoplay == "";}
 
+
+    return '<div class="videoContainer"><div class="fluid-width-video-wrapper"><video poster="'.$a['poster'].'" '.$autoplay.' '.$loop.' width="100%" height="100%"><source src="'.$a['video'].'"/><img src="'.$a['image'].'" alt="rh-video-loop" width="100%" height="100%"/></video></div><p></p></div>';
+}
+add_shortcode( 'htmlvideo', 'htmlvideosmc' );
 
 ?>

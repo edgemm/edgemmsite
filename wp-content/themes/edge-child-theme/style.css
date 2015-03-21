@@ -8,6 +8,7 @@ Template: uber
 @import url("../uber/style.css");
 
 body {
+	position: static !important;
 	background-image: url(/wp-content/themes/edge-child-theme/images/squairy_light.png) !important;
 }
 
@@ -379,6 +380,33 @@ width: auto;
 display:block;
 }
 
+/* footer */
+#footer .secondary {
+	padding: 0;
+}
+
+.copyright {
+	margin-top: 20px;
+}
+
+#footer .right {
+	margin-top: 21px;
+	margin-bottom: 18px;
+}
+.footer-contact {
+	margin: 0 0 0 20px;
+	float: left;
+}
+.footer-contact:first-child {
+	margin-left: 0;
+}
+.footer-contact-heading {
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 0.8em;
+	color: #ef4823;
+}
+
 /* slider text */
 .slideText {
 	margin-top: 1px;
@@ -635,10 +663,58 @@ and (max-device-width : 1024px) {
 
 }
 
+@media only screen and (max-width: 650px) {
+
+.footer-contact {
+	margin-left: 5px;
+}
+
+}
+
 @media only screen and (max-width: 480px), screen and (max-device-width: 480px), screen and (max-width: 600px) {
 
 #header #logo {
 	width: auto;
+}
+
+#footer .secondary {
+	padding-top: 20px;
+}
+
+#footer .right {
+	margin: 0;
+}
+.footer-contact {
+	float: none;
+}
+.footer-contact-heading {
+	font-size: 14px;
+	color: inherit;
+}
+.footer-contact-info {
+	width: 90%;
+	margin-top: 20px;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 3em;
+	border: 1px solid rgba( 0, 0, 0, 0.1 );
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	text-shadow: 0 1px 1px rgba( 0, 0, 0, 0.3 );
+	cursor: pointer;
+	background-color: #ef4823;
+	color: #fff !important;
+}
+.footer-contact-info:hover {
+	background-color: #ef8973;
+}
+.footer-contact:first-child > .footer-contact-info {
+	margin-top: 0;
+}
+
+#footer .left {
+	padding-bottom: 20px;
 }
 
 }

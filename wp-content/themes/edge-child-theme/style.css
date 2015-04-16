@@ -478,6 +478,7 @@ display:block;
 
 /* call to action */
 
+/* cta - home */
 .home #callToAction {
 	margin: 0;
 	padding: 0;
@@ -509,7 +510,7 @@ input.cta-field {
 	background: #fafafa url(images/field_bkg.png) repeat-x;
 	color: #6a6a6a;
 }
-.input.cta-field,
+input.cta-field,
 .home #callToAction input[type="submit"] {
 	-webkit-appearance: none;
 }
@@ -569,6 +570,45 @@ input.cta-field {
 	color: #ef4823;
 }
 
+/* cta - article */
+.cta-inside-edge-signup .wpcf7 {
+	position: relative;
+}
+
+#callToAction .cta-desc {
+	width: 100%;
+	margin-bottom: 1em;
+	float: none;
+	font-size: .9em;
+}
+
+.cta-inside-edge-signup .cta-fields {
+	margin-right: 160px;
+	overflow: hidden;
+}
+.cta-inside-edge-signup .wpcf7-form-control-wrap {
+	width: 49%;
+	float: left;
+}
+.cta-inside-edge-signup .wpcf7-form-control-wrap.email {
+	margin-left: 2%;
+}
+.cta-inside-edge-signup .cta-submit {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+#callToAction .cta-submit .button {
+	margin: 0;
+	padding: 9px 15px;
+	font-size: 13px;
+	position: static;
+	-webkit-appearance: none;
+}
+#callToAction.cta-inside-edge-signup  .wpcf7-response-output {
+	margin: 1em 0 0;
+}
+
 
 /* iPads ----------- */
 @media only screen 
@@ -586,6 +626,35 @@ and (max-device-width : 1024px) {
 	width: 45%;
 }
 
+}
+
+@media only screen and (max-width: 940px) {
+
+#callToAction.cta-inside-edge-signup {
+	padding-bottom: 3px;
+}
+
+.cta-inside-edge-signup .cta-fields {
+	margin-right: 0;
+}
+.cta-inside-edge-signup .cta-submit {
+	margin-top: 2%;
+	padding-bottom: 17px;
+	position: static;
+	text-align: center;
+}
+#callToAction .cta-submit .button {
+	width: 100%;
+	box-sizing: border-box;
+}
+.cta-inside-edge-signup div.wpcf7 img.ajax-loader {
+	margin-left: -8px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+}
+#callToAction.cta-inside-edge-signup  .wpcf7-response-output {
+	margin: 0 0 17px;
 }
 
 @media only screen and (max-width: 800px) {
@@ -783,6 +852,20 @@ min-height: 350px !important;
 
 #content .post.small:nth-child(2n + 1) {
 	clear: left;
+}
+
+
+.cta-inside-edge-signup .wpcf7-form-control-wrap {
+	width: 100%;
+	margin: 0 0 10px !important;
+	display: block;
+	float: none;
+}
+.cta-inside-edge-signup .cta-fields {
+	padding-bottom: 0;
+}
+.cta-inside-edge-signup .cta-submit {
+	margin-top: 0;
 }
 	
 }

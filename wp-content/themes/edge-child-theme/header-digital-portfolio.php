@@ -4,40 +4,6 @@
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
-		<?php // detect retina and set cookie if not already set
-
-		if( isset($_COOKIE["device_pixel_ratio"]) ) :
-		
-			$is_retina = ( $_COOKIE[ "device_pixel_ratio" ] >= 2 );
-		
-		else :
-
-		?>
-		<script language="javascript">
-
-		(function(){
-			if( document.cookie.indexOf( 'device_pixel_ratio' ) == -1
-				&& 'devicePixelRatio' in window
-				&& window.devicePixelRatio == 2 ) {
-
-				var date = new Date();
-				date.setTime( date.getTime() + 3600000 );
-			
-				document.cookie = 'device_pixel_ratio=' + window.devicePixelRatio + ';' +  ' expires=' + date.toUTCString() +'; path=/';
-		
-				//if cookies are not blocked, reload the page
-				if( document.cookie.indexOf( 'device_pixel_ratio' ) != -1 ) {
-					window.location.reload();
-				}
-			}
-		})();
-		</script>
-		<?php
-
-		endif;
-		
-		?>
-
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
 		<link href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon1.ico" rel="shortcut icon">
 

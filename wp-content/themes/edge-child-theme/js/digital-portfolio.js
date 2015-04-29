@@ -7,8 +7,6 @@
 var wrap = $( ".wrapper" );
 var head = $( ".header" );
 
-var carousel = new Carousel( ".slides-container" );
-
 function centerWrapper() {
 
 	// dimensions of images
@@ -34,14 +32,6 @@ function centerWrapper() {
 		imgMaxW = imgMaxH * ( slideW / slideH );
 
 	}
-
-	console.log( "scrW is: " + scrW );
-	console.log( "scrH is: " + scrH );
-	console.log( "wrapMaxW is: " + wrapMaxW );
-	console.log( "imgMaxW is: " + imgMaxW );
-	console.log( "imgMaxH is: " + imgMaxH );
-	console.log( "headH is: " + headH );
-	console.log( "wrapSpacing is: " + wrapSpacing );
 	
 	wrap.css({
 		"width" : imgMaxW + "px",
@@ -61,7 +51,7 @@ function centerWrapper() {
 	});
 }
 
-function wrapPosDisp(){
+function wrapPosDisp() {
 
 	wrap.css({
 		"width": "95%",
@@ -78,7 +68,10 @@ function wrapPosDisp(){
 			}).animate({
 				opacity: 1
 			}, 400 );
+
+		var carousel = new Carousel( ".slides-container" );
 		carousel.init();
+
 	}, 100 );
 
 	setTimeout(function(){
@@ -86,8 +79,107 @@ function wrapPosDisp(){
 	}, 0);
 }
 
+//////////////////////
+// LOAD SLIDES
+//////////////////////
+
+var loadImagesTimer;
+
+function loadSlideImages(){
+	
+	// counter for images updated
+	var c = 1;
+
+	$( ".slide-img" ).not( ".srcSet" ).each(function(){
+
+		var this_img = this;
+		var src = $( this_img ).attr( 'src' ) || '';
+
+		if ( !src.length > 0 ) {
+
+			var true_src = $( this_img ).attr( 'data-imgSrc' ) || '';
+
+			if ( true_src.length > 0 ) {
+
+				var img = new Image();
+				img.src = true_src;
+
+				$( img ).load(function(){
+					this_img.src = this.src;
+				});
+
+			}
+
+		c++;
+
+		} else {
+
+			$(this).addClass( "srcSet" );
+
+		}
+
+		// end after 20 images
+		return ( c % 21 !== 0 );
+
+	});
+
+	if ( c == 1 ) {
+
+		clearInterval( loadImagesTimer );
+
+	}
+
+	console.log( "interval ran" );
+
+}
+
+//function loadSlideImages( i ) {
+//
+//	var slide_img = $( ".slide:nth-of-type( " + i + " )" ).find( ".slide-img" );
+//	var src = slide_img.attr( "src" ) || '';
+//
+//	if ( !src.length > 0 ) {
+//
+//		var true_src = slide_img.attr( "data-imgSrc" ) || '';
+//
+//		if ( true_src.length > 0 ) {
+//
+//			var img = new Image();
+//			img.src = true_src;
+//
+//			$( img ).load(function(){
+//
+//				slide_img.attr( "src", this.src );
+//
+//				i++;
+//
+//				if ( i <= $( ".slide" ).length ) {
+//					loadSlideImages( i );
+//				} else {
+//					wrapPosDisp();
+//				}
+//			});
+//		}
+//
+//	} else {
+//
+//		i++;		
+//
+//		if ( i <= $( ".slide" ).length ) {
+//			loadSlideImages( i );
+//		} else {
+//			wrapPosDisp();
+//		}		
+//	}	
+//}
+
 $(window).load(function(){
+
 	wrapPosDisp();
+	//loadSlideImages();
+	//loadSlideImages( 1 );
+	loadImagesTimer = window.setInterval( loadSlideImages, 5000 );
+
 });
 
 $(window).resize(function(){
@@ -181,6 +273,7 @@ $(document).keyup(function(e) {
 //////////////////////
 // IMAGE SLIDER
 //////////////////////
+
 function Carousel(element) {
 	
 		var self = this;
@@ -215,6 +308,20 @@ function Carousel(element) {
 		};
 
 
+		/* set src of image if not set */
+		function setImgSrc(i) {
+			loadSlideImages();
+		i = parseInt( i ) + 1;
+		var slide_img = $( ".slide:nth-of-type( " + i + " ) " ).find( ".slide-img" );
+		var slide_src = slide_img.attr( "src" ) || '';
+		
+		if ( !slide_src.length > 0 ) {
+			var true_src = slide_img.attr( "data-imgSrc" );
+			slide_img.attr( "src", true_src );
+		}	
+		};
+
+
 		/* show pane by index */
 		this.showPane = function(index, animate) {
 		// between the bounds
@@ -245,8 +352,14 @@ function Carousel(element) {
 		}
 		}
 
-		this.next = function() { return this.showPane(current_pane+1, true); };
-		this.prev = function() { return this.showPane(current_pane-1, true); };
+		this.next = function() {
+			setImgSrc( current_pane + 1 );
+			return this.showPane(current_pane+1, true);
+		};
+		this.prev = function() {
+			setImgSrc( current_pane - 1 );
+			return this.showPane(current_pane-1, true);
+		};
 	
 	$( ".btn-slidenav" ).click(function(e){
 		e.preventDefault();
@@ -261,6 +374,8 @@ function Carousel(element) {
 	
 	$( ".mcs-link" ).click(function(e){
 		var i = $(this).attr( "data-index" );
+
+		setImgSrc( i );
 		
 		modalClose( $(this) );
 		self.showPane( i, true );
@@ -315,5 +430,6 @@ function Carousel(element) {
 
 		new Hammer(element[0], { dragLockToAxis: true }).on("release dragleft dragright swipeleft swiperight", handleHammer);
 }
+
 
 })(jQuery);

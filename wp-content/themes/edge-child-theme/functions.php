@@ -55,11 +55,10 @@ function edgemm_scripts() {
       // enqueue scripts
       wp_enqueue_script( 'js-hammer', get_stylesheet_directory_uri() . '/js/hammer.min.js', array(), '1.1.2', true );
       wp_enqueue_script( 'js-screenfull', get_stylesheet_directory_uri() . '/js/screenfull.js', array(), '1.1.2', true );
-      wp_enqueue_script( 'js-digital-portfolio', get_stylesheet_directory_uri() . '/js/digital-portfolio.js', array(), '1.0.0', true );
+      wp_enqueue_script( 'js-digital-portfolio', get_stylesheet_directory_uri() . '/js/digital-portfolio.js', array(), '1.0.66', true );
    }
 }
 add_action( 'wp_enqueue_scripts', 'edgemm_scripts' );
-
 
 // detect mobile
 function detect_mobile() {
@@ -368,11 +367,6 @@ function concerts_sort($columns) {
 		'digital_portfolio_order' 	=> 'digital_portfolio_order'
 	);
 	return wp_parse_args($custom, $columns);
-	/* or this way
-		$columns['concertdate'] = 'concertdate';
-		$columns['city'] = 'city';
-		return $columns;
-	*/
 }
 
 // ADMIN COLUMN - SORTING - ORDERBY
@@ -382,9 +376,7 @@ function digital_portfolio_order_column_orderby( $vars ) {
 	if ( isset( $vars['orderby'] ) && 'digital_portfolio_order' == $vars['orderby'] ) {
 		$vars = array_merge( $vars, array(
 			'meta_key' => 'digital_portfolio_order',
-			//'orderby' => 'meta_value_num', // does not work
 			'orderby' => 'meta_value_num'
-			//'order' => 'asc' // don't use this; blocks toggle UI
 		) );
 	}
 	return $vars;

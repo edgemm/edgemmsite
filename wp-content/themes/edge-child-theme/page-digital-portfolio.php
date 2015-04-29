@@ -1,4 +1,4 @@
-<?php
+	<?php
 /* Template Name: Digital Portfolio */
 
 get_header( 'digital-portfolio' );
@@ -14,36 +14,10 @@ global $is_retina;
 	
 				<?php
 
-				$args = array(
-					'post_type'		=> 'digital_portfolio',
-					'orderby'		=> 'meta_value_num',
-					'meta_key'		=> 'digital_portfolio_order',
-					'order' 		=> 'ASC',
-					'posts_per_page'	=> -1
-				);
+				include( locate_template( 'part-portfolio.php' ) );
 
-				$the_query = new WP_Query( $args );
+				wp_reset_postdata();
 
-				if ($the_query->have_posts()) :
-					while ( $the_query->have_posts() ) :
-					
-						$the_query->the_post();
-				?>	
-					<div class="slide" data-title="<?php echo get_the_title(); ?>">
-					<?php
-					// use retina photos if retina display
-					$portfolio_thumbnail = ( $is_retina ) ? "digital-portfolio-retina" : "digital-portfolio";
-					
-					if ( has_post_thumbnail() ) {
-						the_post_thumbnail( $portfolio_thumbnail, array( 'class' => 'slide-img' ) );
-					} else {
-						
-					}
-					?>
-					</div> <!-- end .slide -->
-				<?php
-				endwhile;
-				endif;
 				?>
 	
 				</div>
@@ -72,10 +46,10 @@ global $is_retina;
 				<?php
 				$i = 0;
 				
-				if ($the_query->have_posts()) :
-					while ( $the_query->have_posts() ) :
+				if ($portfolio_query->have_posts()) :
+					while ( $portfolio_query->have_posts() ) :
 					
-						$the_query->the_post();
+						$portfolio_query->the_post();
 				?>
 				<div class="mcs-container">
 					<a class="mcs-link" href="javascript:void(0);" data-index="<?php echo $i; ?>">

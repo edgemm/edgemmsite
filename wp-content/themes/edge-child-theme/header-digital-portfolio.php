@@ -39,7 +39,7 @@
 
 					<!-- logo -->
 					<div class="logo">
-						<a href="<?php echo home_url(); ?>">
+						<a href="<?php echo home_url(); ?>" target=“_blank”>
 							<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/edgemm_logo@2x.png" alt="Edge Multimedia Logo" class="logo-img">
 						</a>
 					</div>

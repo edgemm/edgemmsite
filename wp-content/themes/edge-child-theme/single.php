@@ -67,7 +67,7 @@
 			if( !in_category(35) ) :
 				$call_to_action_text = of_get_option('ttrust_cta_text');
 
-				if( is_desc_cat( 63 ) ) : // show Inside Edge signup form if on Inside Edge article
+				if( is_desc_cat(65) ) : // show Inside Edge signup form if on News article.
 				?>
 			<div id="callToAction" class="cta-inside-edge-signup clearfix">
 				<p class="cta-desc">Sign-up for our newsletter to have great articles like this sent to your email every month.</p>

@@ -20,13 +20,13 @@
 			<?php $footer_right = of_get_option('ttrust_footer_right'); ?>
 			<div class="right">
 				<p class="footer-contact">
-					<a class="footer-contact-info" href="">
+					<a class="footer-contact-info" href="tel:503.828.0849" onClick="_gaq.push(['_trackEvent', 'Contact', 'Click', 'Call']);">
 						<span class="footer-contact-heading">Call:</span> 
 						503.828.0849
 					</a>
 				</p>
 				<p class="footer-contact">
-					<a class="footer-contact-info" href="mailto:hello@edgemm.com">
+					<a class="footer-contact-info" href="mailto:hello@edgemm.com" target="_blank"  onClick="_gaq.push(['_trackEvent', 'Contact', 'Click', 'Email']);">
 						<span class="footer-contact-heading">Email:</span> 
 						hello@edgemm.com
 					</a>

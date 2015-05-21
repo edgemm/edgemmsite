@@ -65,28 +65,33 @@
 
 	<div class="inside clearfix">
 
-		<!-- Your Custom Solution button -->                                                         
-		<a class="button" href="#" id="mynextstep">YOUR CUSTOM SOLUTION</a>     
+		<!-- Your Custom Solution button -->
+		<a class="button header-cta" href="#" id="mynextstep">YOUR CUSTOM SOLUTION</a>
+		<a class="button header-cta cta-mobile" href="tel:503.828.0849">Call Us Today</a>
 		<!-- End Your Custom Solution button -->
 
 		<?php $ttrust_logo = of_get_option('logo'); ?>
 		<div id="logo">
-		<?php if($ttrust_logo) : ?>				
+		<?php if($ttrust_logo) : ?>
 			<h1 class="logo"><a href="<?php bloginfo('url'); ?>"><img src="<?php echo $ttrust_logo; ?>" alt="<?php bloginfo('name'); ?>" /></a></h1>
 		<?php else : ?>				
-			<h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>				
+			<h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
 		<?php endif; ?>	
 		</div>
 
-		<div id="mainNav" class="clearfix">							
-			<?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>			
+		<div id="mainNav" class="clearfix">
+
+			<label for="nav-toggle" class="nav-trigger img-replace">Menu</label>
+			<input type="checkbox" name="nav" id="nav-toggle" class="nav-toggle" />
+
+			<?php wp_nav_menu( array('menu_class' => 'sf-menu', 'theme_location' => 'main', 'fallback_cb' => 'default_nav' )); ?>
 		</div>
 
-	</div>	
+	</div>
 </div>
 
 <div id="main" class="clearfix">
-	
-	<?php if(is_front_page()):?>			
-		<?php if(of_get_option('ttrust_slideshow_enabled')) get_template_part( 'part-slideshow' ); ?>	
+
+	<?php if(is_front_page()):?>
+		<?php if(of_get_option('ttrust_slideshow_enabled')) get_template_part( 'part-slideshow' ); ?>
 	<?php endif; ?>

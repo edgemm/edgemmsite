@@ -18,6 +18,12 @@ font-size: .8em;
 margin: 0 0 20px 0;
 }
 
+.img-replace {
+	overflow: hidden;
+	text-indent: 200%;
+	white-space: nowrap;
+}
+
 div#fb-like-position {
 	width: 225px;
 	margin-left:auto;
@@ -342,20 +348,21 @@ display: block;
 float: left;
 }
 
-#mynextstep {
-	float: right;
-	margin-right: 3%;
-	margin-left: 3%;
+a.header-cta {
+	margin: -21px 3% 20px 3%;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	display: block;
+	float: right;
 	position: relative;
-	margin-top: -21px;
-	margin-bottom: 20px;
+	font-size: .75em;
+	text-transform: uppercase;
 	-webkit-box-shadow: 1px 1px 7px rgba(50, 50, 50, 0.32);
 	-moz-box-shadow: 1px 1px 7px rgba(50, 50, 50, 0.32);
 	box-shadow: 1px 1px 7px rgba(50, 50, 50, 0.32);
-	font-size: .75em;
-	padding-top: 8px;
-	padding-bottom: 8px;
+}
+a.cta-mobile {
+	display: none;
 }
 
 #header .inside {
@@ -363,7 +370,7 @@ border-top: 0px solid #eaeaea !important;
 }
 
 #header #logo img {
-	max-width: 169px;
+	max-width: 162px;
 }
 
 .oneFourth {
@@ -405,6 +412,13 @@ display:block;
 	font-weight: bold;
 	line-height: 0.8em;
 	color: #ef4823;
+}
+
+/* navigation */
+
+.nav-toggle,
+.nav-trigger {
+	display: none;
 }
 
 /* slider text */
@@ -730,9 +744,99 @@ and (max-device-width : 1024px) {
 	left: 50%;
 }
 
+/*#content .post.small {
+	width: 47.5%;
+	margin: 0 0 0 5%;
+}
+#content .post.small:nth-child(2n + 1) {
+	margin-left: 0;
+	clear: left;
+}*/
+
+
 }
 
 @media only screen and (max-width: 650px) {
+
+#header .inside {
+	padding: 0;
+}
+
+a.header-cta {
+	display: none;
+}
+
+a.header-cta.cta-mobile {
+	margin: 0 auto;
+	display: block;
+	float: none;
+}
+
+a.header-cta.button:hover {
+	background-color: #ef4823 !important;	
+}
+
+#header #logo {
+	width: 162px;
+	margin: 10px auto;
+	display: block;
+	float: none;
+}
+
+#header #logo img {
+	margin: 0 auto;
+}
+
+#mainNav {
+	width: 100%;
+	height: auto;
+	margin: 0;
+	position: static;
+}
+
+.nav-trigger {
+	width: 18px;
+	height: 15px;
+	display: block;
+	position: absolute;
+	top: 67px;
+	right: 20px;
+	cursor: pointer;
+	background: url('images/nav-pancakes.png') no-repeat 0 0;
+	z-index: 9999;
+}
+
+.nav-toggle:checked ~ .menu-main-nav-container {
+	max-height: 300px;
+}
+
+.menu-main-nav-container {
+	max-height: 0;
+	overflow: hidden;
+	-moz-transition: .25s ease-in;
+	-webkit-transition: .25s ease-in;
+	-o-transition: .25s ease-in;
+	transition: .25s ease-in;
+}
+
+#mainNav #menu-main-nav {
+	margin: 0;
+}
+#menu-main-nav > .menu-item {
+	margin: 0;
+	display: list-item;
+	float: none;
+	border-top: 1px solid #eee;
+}
+#menu-main-nav > .menu-item > a {
+	padding: 0 5%;
+	font-size: 1em;
+	line-height: 3em;
+}
+#menu-main-nav > .menu-item > a:hover {
+	background: #f6f6f6;
+	color: #8f8f8f !important;
+}
 
 .footer-contact {
 	margin-left: 5px;
@@ -802,23 +906,15 @@ and (max-device-width : 1024px) {
 	width: 45%;
 }
 
-#mynextstep {
-	float: none;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-a#mynextstep.button:hover {
-	background-color: #ef4823 !important;	
-}
-
-#header #logo {
-	width: auto;
-	margin-right: 3%;
+.homeSection h3 {
+	font-size: 1em;
 }
 
 .cta-headline:before {
 	margin-top: 4px;
+}
+#callToAction.homeSection h3 span {
+	padding: 0 3px;
 }
 .home #callToAction .wpcf7-form-control-wrap {
 	width: 100% !important;
@@ -854,7 +950,6 @@ min-height: 350px !important;
 	clear: left;
 }
 
-
 .cta-inside-edge-signup .wpcf7-form-control-wrap {
 	width: 100%;
 	margin: 0 0 10px !important;
@@ -866,6 +961,72 @@ min-height: 350px !important;
 }
 .cta-inside-edge-signup .cta-submit {
 	margin-top: 0;
+}
+
+#footer .inside {
+	padding-top: 15px;
+}
+
+#footer .main {
+	margin: 0 3% !important;
+}
+
+#footer .widgetBox {
+	width: 100% !important;
+	max-width: 100% !important;
+	margin: 20px 0 0 !important;
+}
+#footer .widgetBox:first-child {
+	margin-top: 0 !important;
+}
+#footer .widgetBox h3 {
+	margin-top: 1em;
+	font-size: 1em;
+}
+#footer .widgetBox a {
+	width: auto;
+	display: block;
+}
+
+#footer .social-flickr,
+#footer .social-pinterest,
+#footer .social-rss,
+#footer .social-gplus,
+#nav_menu-3,
+#text-2,
+#text-5 {
+	display: none;
+}
+
+#footer .simple-social-icons > ul > li {
+	width: 22.75% !important;
+	margin: 0 !important;
+	padding-left: 3% !important;
+}
+#footer .simple-social-icons > ul > li:first-child {
+	padding-left: 0 !important;
+}
+#footer .simple-social-icons > ul > li.social-linkedin,
+#footer .simple-social-icons > ul > li.social-twitter {
+	padding: 0 
+}
+
+#footer .secondary .left,
+#footer .secondary .right {
+	margin: 0 3%;
+}
+
+.footer-contact-info {
+	width: 100%;
+}
+#footer .widget_nav_menu li {
+	margin: 0;
+	padding: 10px 0;
+	font-size: 1em;
+	background: transparent url( '../uber/images/dotted_line.gif' ) 0 0 repeat-x;
+}
+#footer .widget_nav_menu li:first-child {
+	background: transparent;
 }
 	
 }

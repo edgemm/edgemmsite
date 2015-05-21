@@ -22,7 +22,7 @@ Template Name: About Edge
             
 <!-- Our Team -->                              
 
-<div id="posts" class="full homeSection clearfix"><h3><span>Our Team</span></h3>
+<div id="posts" class="full homeSection clearfix"><!--<h3><span>Our Team</span></h3>-->
 <?php query_posts( array('order' => 'ASC','cat' => 36,'posts_per_page' => -1));?>
 <div class="homePosts"><?php while (have_posts()) : the_post(); ?><div <?php post_class('small'); ?>>	
 <a class="thumb" href="<?php the_permalink() ?>" rel="bookmark" >

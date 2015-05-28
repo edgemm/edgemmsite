@@ -28,7 +28,7 @@ $portfolio_args = array(
 					$portfolio_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), $portfolio_thumbnail_size );
 					$portfolio_thumbnail = $portfolio_thumbnail[0];
 
-					$portfolio_thumbnail_src = ( $i > 20 ) ? "" : $portfolio_thumbnail;
+					$portfolio_thumbnail_src = ( $i > 10 ) ? "" : $portfolio_thumbnail;
 
 					if ( has_post_thumbnail() ) {
 						// the_post_thumbnail( $portfolio_thumbnail_size, array( 'class' => 'slide-img' ) );

@@ -118,18 +118,20 @@ function loadSlideImages(){
 
 		}
 
-		// end after 20 images
-		return ( c % 21 !== 0 );
+		// end after 10 images
+		return ( c % 11 !== 0 );
 
 	});
 
+	// stop searching for images to load and display portfolio
 	if ( c == 1 ) {
 
 		clearInterval( loadImagesTimer );
 
-	}
+		// display portfolio
+		//wrapPosDisp();
 
-	console.log( "interval ran" );
+	}
 
 }
 
@@ -309,17 +311,17 @@ function Carousel(element) {
 
 
 		/* set src of image if not set */
-		function setImgSrc(i) {
-			loadSlideImages();
-		i = parseInt( i ) + 1;
-		var slide_img = $( ".slide:nth-of-type( " + i + " ) " ).find( ".slide-img" );
-		var slide_src = slide_img.attr( "src" ) || '';
-		
-		if ( !slide_src.length > 0 ) {
-			var true_src = slide_img.attr( "data-imgSrc" );
-			slide_img.attr( "src", true_src );
-		}	
-		};
+		//function setImgSrc(i) {
+		//	loadSlideImages();
+		//i = parseInt( i ) + 1;
+		//var slide_img = $( ".slide:nth-of-type( " + i + " ) " ).find( ".slide-img" );
+		//var slide_src = slide_img.attr( "src" ) || '';
+		//
+		//if ( !slide_src.length > 0 ) {
+		//	var true_src = slide_img.attr( "data-imgSrc" );
+		//	slide_img.attr( "src", true_src );
+		//}	
+		//};
 
 
 		/* show pane by index */
@@ -353,11 +355,11 @@ function Carousel(element) {
 		}
 
 		this.next = function() {
-			setImgSrc( current_pane + 1 );
+			//setImgSrc( current_pane + 1 );
 			return this.showPane(current_pane+1, true);
 		};
 		this.prev = function() {
-			setImgSrc( current_pane - 1 );
+			//setImgSrc( current_pane - 1 );
 			return this.showPane(current_pane-1, true);
 		};
 	
@@ -375,7 +377,7 @@ function Carousel(element) {
 	$( ".mcs-link" ).click(function(e){
 		var i = $(this).attr( "data-index" );
 
-		setImgSrc( i );
+		//setImgSrc( i );
 		
 		modalClose( $(this) );
 		self.showPane( i, true );

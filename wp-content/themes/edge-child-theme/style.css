@@ -359,7 +359,8 @@ float: left;
 }
 
 #header .inside {
-border-top: 0px solid #eaeaea !important;
+	border-top: 0px solid #eaeaea !important;
+	padding: 15px 0 15px 0 !important;
 }
 
 #header #logo img {

@@ -31,6 +31,9 @@
 <file name="single-project.php" server="edgemultimedia.staging.wpengine.com" local="3457744276" remote="3457744276" Dst="-1" />
 <file name="archive-beforeremovemeta.php" server="edgemultimedia.staging.wpengine.com" local="3457735919" remote="-4611729961075024510" Dst="-1" />
 <file name="archive page home before meta change.php" server="edgemultimedia.staging.wpengine.com" local="3457736367" remote="-4611729961075023916" Dst="-1" />
-<file name="single.php" server="edgemmsite.wpengine.com" local="130748235306980738" remote="130748235250000000" Dst="2" />
+<file name="single.php" server="edgemmsite.wpengine.com" local="130767127576012728" remote="130767127580000000" Dst="2" />
 <file name="header-digital-portfolio.php" server="edgemmsite.wpengine.com" local="130748231209636278" remote="130748231160000000" Dst="2" />
+<file name="style.css" server="edgemmsite.wpengine.com" local="130773266882736720" remote="130773266810000000" Dst="2" />
+<file name="page-template-about-edge.php" server="edgemmsite.wpengine.com" local="130767107525315489" remote="130767107530000000" Dst="2" />
+<file name="header.php" server="edgemmsite.wpengine.com" local="130773263036954988" remote="130773262960000000" Dst="2" />
 </dwsync>

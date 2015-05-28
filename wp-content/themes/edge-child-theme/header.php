@@ -66,7 +66,7 @@
 	<div class="inside clearfix">
 
 		<!-- Your Custom Solution button -->                                                         
-		<a class="button" href="#" id="mynextstep">YOUR CUSTOM SOLUTION</a>     
+		<!--<a class="button" href="#" id="mynextstep">YOUR CUSTOM SOLUTION</a> -->    
 		<!-- End Your Custom Solution button -->
 
 		<?php $ttrust_logo = of_get_option('logo'); ?>

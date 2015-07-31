@@ -87,7 +87,11 @@ add_action( 'init', 'detect_retina' );
 require_once ('multiple_featured_images_smc.php');
 
 
-if ( function_exists( 'add_image_size' ) ) { 
+if ( function_exists( 'add_image_size' ) ) {
+	// adaptation of uber's one_fourth sizes for home page to accommodate mobile
+	add_image_size('edgemm_one_fourth_cropped', 480, 371, true);
+	add_image_size('edgemm_one_fourth_short', 480, 218, true);
+	
 	add_image_size( 'background-blur-smc', 1000, 1000 );
 
 	// digital portfolio

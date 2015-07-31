@@ -56,7 +56,7 @@ Template Name: Home
     <?php //global $more; $more = 0; ?>
 	<?php while (have_posts()) : the_post(); ?>			    
 		<div <?php post_class('small'); ?>>	
-			<a class="thumb" href="<?php the_permalink() ?>" rel="bookmark" ><?php the_post_thumbnail("ttrust_one_fourth_short", array('class' => 'thumb', 'alt' => ''.get_the_title().'', 'title' => ''.get_the_title().'')); ?></a>			
+			<a class="thumb" href="<?php the_permalink() ?>" rel="bookmark" ><?php the_post_thumbnail("edgemm_one_fourth_short", array('class' => 'thumb', 'alt' => ''.get_the_title().'', 'title' => ''.get_the_title().'')); ?></a>			
 			<h1><a href="<?php the_permalink() ?>" rel="bookmark" ><?php the_title(); ?></a></h1>
 			<div class="meta clearfix">					
 				<span class="date">By <?php the_author(); ?> on <?php the_time( 'M j, Y' ); ?></span>				

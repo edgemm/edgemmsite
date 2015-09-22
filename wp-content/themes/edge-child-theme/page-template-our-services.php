@@ -19,14 +19,29 @@ Template Name: Our Services
 				<?php the_content(); ?>
 
 <ul id="filterNav" class="clearfix">
-<li><a href="#" id="creative-servicesbutton">Creative</a></li>
-<li><a href="#" id="designbutton">Design</a></li>
 <li><a href="#" id="online-servicesbutton">Digital</a></li>
 <li><a href="#" id="media-buyingbutton">Media Buying</a></li>
-<li><a href="#" id="public-relationsbutton">Public Relations</a></li>
-<li><a href="#" id="social-mediabutton">Social Media</a></li>
+<li><a href="#" id="creative-servicesbutton">Creative</a></li>
+<!--<li><a href="#" id="designbutton">Design</a></li>-->
+<!-- <li><a href="#" id="public-relationsbutton">Public Relations</a></li> -->
+<!-- <li><a href="#" id="social-mediabutton">Social Media</a></li> -->
 
 		</ul>
+        
+<!-- Online Services -->
+<div id="online-services">
+<div id="posts" class="full homeSection clearfix"><h3><span>Digital</span></h3>
+<?php query_posts( array('order' => 'ASC','cat' => 154));?>
+<div class="homePosts"><?php while (have_posts()) : the_post(); ?><div <?php post_class('small'); ?>>	
+<a class="thumb" href="<?php the_permalink() ?>" rel="bookmark" >
+<?php the_post_thumbnail("ttrust_one_fourth_short", array('class' => 'thumb', 'alt' => ''.get_the_title().'', 'title' => ''.get_the_title().'')); ?></a>			
+<h1><a href="<?php the_permalink() ?>" rel="bookmark" ><?php the_title(); ?></a></h1>
+<div class="meta clearfix"></div><?php print_excerpt_smc(get_the_title()); ?><?php //the_excerpt(); ?><?php more_link(); ?></div>
+<?php endwhile; ?><?php wp_reset_query(); ?>
+</div>
+</div>
+</div>
+<!-- End -->        
 
 <!-- Media buying -->                              
 <div id="media-buying">
@@ -59,6 +74,7 @@ Template Name: Our Services
 <!-- End -->
 
 <!-- Design -->
+<!--
 <div id="design">
 <div id="posts" class="full homeSection clearfix"><h3><span>Design</span></h3>
 <?php query_posts( array('order' => 'ASC','cat' => 23));?>
@@ -71,25 +87,13 @@ Template Name: Our Services
 </div>
 </div>
 </div>
-<!-- End -->
 
-<!-- Online Services -->
-<div id="online-services">
-<div id="posts" class="full homeSection clearfix"><h3><span>Digital</span></h3>
-<?php query_posts( array('order' => 'ASC','cat' => 154));?>
-<div class="homePosts"><?php while (have_posts()) : the_post(); ?><div <?php post_class('small'); ?>>	
-<a class="thumb" href="<?php the_permalink() ?>" rel="bookmark" >
-<?php the_post_thumbnail("ttrust_one_fourth_short", array('class' => 'thumb', 'alt' => ''.get_the_title().'', 'title' => ''.get_the_title().'')); ?></a>			
-<h1><a href="<?php the_permalink() ?>" rel="bookmark" ><?php the_title(); ?></a></h1>
-<div class="meta clearfix"></div><?php print_excerpt_smc(get_the_title()); ?><?php //the_excerpt(); ?><?php more_link(); ?></div>
-<?php endwhile; ?><?php wp_reset_query(); ?>
-</div>
-</div>
-</div>
-<!-- End -->
+--><!-- End -->
+
+
 
 <!-- Social Media -->
-<div id="social-media">
+<!--<div id="social-media">
 <div id="posts" class="full homeSection clearfix"><h3><span>Social Media</span></h3>
 <?php query_posts( array('order' => 'ASC','cat' => 171));?>
 <div class="homePosts"><?php while (have_posts()) : the_post(); ?><div <?php post_class('small'); ?>>	
@@ -100,10 +104,11 @@ Template Name: Our Services
 <?php endwhile; ?><?php wp_reset_query(); ?>
 </div>
 </div>
-</div>
+</div>-->
 <!-- End -->
 
 <!-- Public Relations -->
+<!-- Removed by SMC
 <div id="public-relations">
 <div id="posts" class="full homeSection clearfix"><h3><span>Public Relations</span></h3>
 <?php query_posts( array('order' => 'ASC','cat' => 173));?>
@@ -116,7 +121,8 @@ Template Name: Our Services
 </div>
 </div>
 </div>
-<!-- End -->                                           
+
+--><!-- End -->                                           
 
 </div>				
 		<?php comments_template('', true); ?>			

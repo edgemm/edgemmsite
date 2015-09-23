@@ -493,22 +493,32 @@ display:block;
 
 /* call to action */
 
-/* cta - home */
-.home #callToAction {
+/* cta - contact */
+#callToAction.cta-contact {
 	margin: 0;
 	padding: 0;
 	background: transparent;
 }
 
-#callToAction h3 {
+#callToAction.cta-contact h3 {
+	margin: 0 0 20px;
+	font-size: .75em;
+	font-weight: bold;
+	clear: both;
+	text-align: left;
+	background: transparent url( '../uber/images/dotted_line.gif' ) 0 center repeat-x;
 	color: #ef4823;
 }
+#callToAction.cta-contact h3 > span {
+	padding-right: 10px;
+	background: #fff;
+}
 
-.home #callToAction p {
+#callToAction.cta-contact p {
 	width: 100%;
 }
 
-.home #callToAction .wpcf7-form-control-wrap {
+#callToAction.cta-contact .wpcf7-form-control-wrap {
 	width: 20%;
 	margin-right: 2%;
 	float: left;
@@ -526,23 +536,23 @@ input.cta-field {
 	color: #6a6a6a;
 }
 input.cta-field,
-.home #callToAction input[type="submit"] {
+#callToAction.cta-contact input[type="submit"] {
 	-webkit-appearance: none;
 }
 
-.home #callToAction input[type="submit"] {
+#callToAction.cta-contact input[type="submit"] {
 	width: 12%;
 	margin: 0;
 	padding: 10px 0;
 	float: left;
 }
-.home #callToAction .ajax-loader {
+#callToAction.cta-contact .ajax-loader {
 	margin: 0 auto;
 	padding: 10px 0;
 	clear: both;
 }
 
-.home #callToAction .wpcf7-form-control-wrap.send-sign {
+#callToAction.cta-contact .wpcf7-form-control-wrap.send-sign {
 	position: absolute;
 	top: 75px;
 	left: 66%;
@@ -566,22 +576,22 @@ input.cta-field,
 	color: #7d7d7b;
 }
 
-#callToAction .wpcf7-not-valid-tip {
+#callToAction.cta-contact .wpcf7-not-valid-tip {
 	margin-top: 5px;
 	font-size: .8em;
 }
-#callToAction .wpcf7-response-output {
+#callToAction.cta-contact .wpcf7-response-output {
 	margin: -1.5em .5em 1em;
 	clear: both;
 	font-size: .9em;
 	border: none;
 	text-align: center;
 }
-#callToAction .wpcf7-mail-sent-ok {
+#callToAction.cta-contact .wpcf7-mail-sent-ok {
 	margin-top: -.5em;
 }
-#callToAction .wpcf7-not-valid-tip,
-#callToAction .wpcf7-validation-errors {
+#callToAction.cta-contact .wpcf7-not-valid-tip,
+#callToAction.cta-contact .wpcf7-validation-errors {
 	color: #ef4823;
 }
 
@@ -676,11 +686,11 @@ and (max-device-width : 1024px) {
 
 @media only screen and (max-width: 800px) {
 
-.home #callToAction .wpcf7-form-control-wrap {
+#callToAction.cta-contact .wpcf7-form-control-wrap {
 	width: 20%;
 	margin-right: 2%;
 }
-.home #callToAction .wpcf7-form-control-wrap.send-sign {
+#callToAction.cta-contact .wpcf7-form-control-wrap.send-sign {
 	width: 55%;
 }
 
@@ -701,20 +711,20 @@ and (max-device-width : 1024px) {
 	position: relative;
 	padding-bottom: 15px;
 }
-.home #callToAction .wpcf7-form-control-wrap {
+#callToAction.cta-contact .wpcf7-form-control-wrap {
 	width: 48% !important;
 	margin: 20px 4% 0 0;
 }
-.home #callToAction .wpcf7-form-control-wrap.name,
-.home #callToAction .wpcf7-form-control-wrap.email {
+#callToAction.cta-contact .wpcf7-form-control-wrap.name,
+#callToAction.cta-contact .wpcf7-form-control-wrap.email {
 	margin-top: 0;
 }
-.home #callToAction .wpcf7-form-control-wrap.email,
-.home #callToAction .wpcf7-form-control-wrap.other-box,
-.home #callToAction .wpcf7-form-control-wrap.send-sign {
+#callToAction.cta-contact .wpcf7-form-control-wrap.email,
+#callToAction.cta-contact .wpcf7-form-control-wrap.other-box,
+#callToAction.cta-contact .wpcf7-form-control-wrap.send-sign {
 	margin-right: 0;	
 }
-.home #callToAction .wpcf7-form-control-wrap.send-sign {
+#callToAction.cta-contact .wpcf7-form-control-wrap.send-sign {
 	margin-right: 0;
 	float: right;
 	position: relative;
@@ -732,14 +742,14 @@ and (max-device-width : 1024px) {
 	left: 5px;
 	font-size: 1em;
 }
-.home #callToAction .wpcf7-form-control.wpcf7-submit {
+#callToAction.cta-contact .wpcf7-form-control.wpcf7-submit {
 	width: 48%;
 	margin-top: 20px;
 	padding: 0;
 	float: left;
 	line-height: 3em !important;
 }
-.home #callToAction .ajax-loader {
+#callToAction.cta-contact .ajax-loader {
 	margin: 0 0 0 -8px;
 	position: absolute;
 	bottom: 5px;
@@ -946,17 +956,17 @@ a.header-cta.button:hover {
 #callToAction.homeSection h3 span {
 	padding: 0 3px;
 }
-.home #callToAction .wpcf7-form-control-wrap {
+#callToAction.cta-contact .wpcf7-form-control-wrap {
 	width: 100% !important;
 	margin-right: 0;
 }
-.home #callToAction .wpcf7-form-control-wrap.email {
+#callToAction.cta-contact .wpcf7-form-control-wrap.email {
 	margin-top: 20px;
 }
 .send-sign > .cta-checkbox input[type="checkbox"] {
 	margin-top: 0;
 }
-.home #callToAction .wpcf7-form-control.wpcf7-submit {
+#callToAction.cta-contact .wpcf7-form-control.wpcf7-submit {
 	width: 100%;
 }
 
